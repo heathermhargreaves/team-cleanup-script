@@ -1,11 +1,19 @@
-# Eppo Team Experiments Fetcher
+# Eppo Experiments Fetcher
 
-A Node.js application that fetches experiments from Eppo's API, filters them by team ID, and displays the experiment owners.
+A collection of Node.js scripts that fetch experiments from Eppo's API with different filtering options.
+
+## Scripts
+
+### 1. Team-Based Filtering (`exp-by-team.js`)
+Filters experiments by team ID and displays the experiment owners.
+
+### 2. Status-Based Filtering (`ready-experiments.js`)
+Filters experiments by "ready" or "wrap up" status (flexible matching) regardless of team and exports owner details.
 
 ## Features
 
 - 🔌 Connects to Eppo's experiment API
-- 🔍 Filters experiments by team ID
+- 🔍 Multiple filtering options (team ID or status)
 - 📁 Exports data to CSV format with clickable URLs
 - 👥 Displays experiment owners and details
 - 📊 Provides summary statistics
@@ -39,7 +47,14 @@ A Node.js application that fetches experiments from Eppo's API, filters them by 
 
 ## Usage
 
-The application will:
+### Team-Based Filtering (exp-by-team.js)
+```bash
+npm start
+# or
+node exp-by-team.js
+```
+
+This script will:
 1. Connect to the Eppo API using your provided credentials
 2. Fetch all experiments
 3. Filter experiments belonging to the specified team ID
@@ -48,6 +63,24 @@ The application will:
    - Experiment ID
    - Owner name
    - Owner email
+   - Clickable experiment URL
+5. Save CSV file and show summary statistics
+
+### Ready Status Filtering (ready-experiments.js)
+```bash
+node ready-experiments.js
+```
+
+This script will:
+1. Connect to the Eppo API using your provided credentials
+2. Fetch all experiments (regardless of team)
+3. Filter experiments with "ready" or "wrap up" status (flexible matching)
+4. Export data to CSV format including:
+   - Owner name
+   - Owner email
+   - Experiment name
+   - Experiment ID
+   - Experiment status
    - Clickable experiment URL
 5. Save CSV file and show summary statistics
 
@@ -111,7 +144,9 @@ Product Recommendations,exp_789,Jane Smith,jane.smith@company.com,https://eppo.c
 |----------|-------------|----------|---------|
 | `EPPO_API_KEY` | Your Eppo API authentication key | Yes | - |
 | `EPPO_BASE_URL` | Base URL for Eppo API | No | `https://eppo.cloud/api/v1` |
-| `TEAM_ID` | Team ID to filter experiments by | Yes | - |
+| `TEAM_ID` | Team ID to filter experiments by | Yes (for exp-by-team.js only) | - |
+
+**Note:** The `TEAM_ID` is only required when running the team-based filtering script (`exp-by-team.js`). The ready-experiments script (`ready-experiments.js`) doesn't require a team ID since it searches across all teams.
 
 ## Dependencies
 

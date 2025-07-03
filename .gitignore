@@ -91,4 +91,7 @@ Desktop.ini
 
 # Build output
 dist/
-build/ 
+build/
+
+# CSV files
+*.csv 

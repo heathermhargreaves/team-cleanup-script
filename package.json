@@ -2,10 +2,10 @@
   "name": "eppo-team-experiments",
   "version": "1.0.0",
   "description": "Node.js project to fetch Eppo experiments filtered by team ID",
-  "main": "index.js",
+  "main": "exp-by-team.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node index.js"
+    "start": "node exp-by-team.js",
+    "dev": "node exp-by-team.js"
   },
   "dependencies": {
     "axios": "^1.6.0",

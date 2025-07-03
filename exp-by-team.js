@@ -181,10 +181,6 @@ class EppoExperimentFetcher {
       const allExperiments = await this.fetchExperiments();
       console.log(`📊 Total experiments fetched: ${Array.isArray(allExperiments) ? allExperiments.length : 'Unknown'}`);
       
-      // Log all experiments to inspect team structure
-      console.log('\n🔍 All experiments data:');
-      console.log(JSON.stringify(allExperiments, null, 2));
-      
       // Also log a summary of team IDs found
       if (Array.isArray(allExperiments)) {
         const teamIds = new Set();
